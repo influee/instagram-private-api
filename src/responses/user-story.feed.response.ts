@@ -78,6 +78,16 @@ export interface UserStoryFeedResponseItemsItem {
   video_versions?: UserStoryFeedResponseVideoVersionsItem[];
   has_audio?: boolean;
   video_duration?: number;
+  story_link_stickers?: UserStoryFeedResponseStoryLinkStickerItem[];
+}
+export interface UserStoryFeedResponseStoryLinkStickerItem {
+  height: number;
+  is_fb_sticker: number;
+  is_sticker: number;
+  story_link: {
+    url: string;
+    link_type: string;
+  }
 }
 export interface UserStoryFeedResponseImage_versions2 {
   candidates: UserStoryFeedResponseCandidatesItem[];
