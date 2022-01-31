@@ -118,7 +118,10 @@ export class State {
   }
 
   public get appUserAgent() {
-    return `Instagram ${this.appVersion} Android (${this.deviceString}; ${this.language}; ${this.appVersionCode})`;
+    const appVersion = '218.0.0.19.108';
+    const appVersionCode = '322803421';
+    console.log('App user agent', appVersion, appVersionCode, this.appVersion, this.appVersionCode);
+    return `Instagram ${appVersion} Android (${this.deviceString}; ${this.language}; ${appVersionCode})`;
   }
 
   public get webUserAgent() {
@@ -226,7 +229,7 @@ export class State {
     const obj = typeof state === 'string' ? JSON.parse(state) : state;
     if (typeof obj !== 'object') {
       State.stateDebug(`State deserialization failed, obj is of type ${typeof obj} (object expected)`);
-      throw new TypeError('State isn\'t an object or serialized JSON');
+      throw new TypeError("State isn't an object or serialized JSON");
     }
     State.stateDebug(`Deserializing ${Object.keys(obj).join(', ')}`);
     if (obj.constants) {
