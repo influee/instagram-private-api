@@ -120,7 +120,6 @@ export class State {
   public get appUserAgent() {
     const appVersion = '218.0.0.19.108';
     const appVersionCode = '322803421';
-    console.log('App user agent', appVersion, appVersionCode, this.appVersion, this.appVersionCode);
     return `Instagram ${appVersion} Android (${this.deviceString}; ${this.language}; ${appVersionCode})`;
   }
 
