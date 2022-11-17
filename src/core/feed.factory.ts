@@ -4,6 +4,7 @@ import {
   AccountFollowingFeed,
   BestiesFeed,
   BlockedUsersFeed,
+  ClipsFeed,
   DirectInboxFeed,
   DirectPendingInboxFeed,
   DirectThreadFeed,
@@ -323,5 +324,11 @@ export class FeedFactory {
     options: Partial<Pick<TopicalExploreFeed, 'sessionId' | 'clusterId' | 'lat' | 'lng' | 'module'>> = {},
   ): TopicalExploreFeed {
     return plainToClassFromExist(new TopicalExploreFeed(this.client), options);
+  }
+
+  public clips(id: string | number) {
+    return plainToClassFromExist(new ClipsFeed(this.client), {
+      targetUserId: id,
+    });
   }
 }
